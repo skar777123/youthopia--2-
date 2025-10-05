@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youthopia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': '#F0F7FF',
+                        'brand-dark-blue': '#0A2647',
+                        'brand-blue': '#205295',
+                        'brand-light-blue': '#2C74B3',
+                        'brand-yellow': '#FFC107',
+                        'brand-teal': '#14B8A6',
+                        'brand-black': '#000000',
+                        // Passport specific theme colors
+                        'brand-passport-bg': '#F8F5F1',
+                        'brand-passport-cover': '#0A2A4E',
+                        'brand-passport-border': '#E1C16E',
+                        'brand-passport-accent': '#FFC759',
+                        'brand-passport-primary': '#2d3748', // Dark gray for text
+                        'brand-passport-subtle': '#718096', // Lighter gray for subtitles
+                    },
+                    fontFamily: {
+                        sans: ['Nunito Sans', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            font-family: tailwind.config.theme.extend.fontFamily.sans;
+        }
+        .animated-gradient {
+            background: linear-gradient(-45deg, #0A2647, #205295, #2C74B3, #14B8A6);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        .dark .animated-gradient {
+            background: linear-gradient(-45deg, #000000, #080808, #000000, #111111);
+            background-size: 400% 400%;
+            animation: gradient 20s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .dg-scroll-lock {
+            overflow: hidden;
+            touch-action: none;
+        }
+        .passport-scrollbar::-webkit-scrollbar { width: 8px; }
+        .passport-scrollbar::-webkit-scrollbar-track { background: #e0e0e0; border-radius: 10px; }
+        .passport-scrollbar::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
+        .passport-scrollbar::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        .dark .passport-scrollbar::-webkit-scrollbar-track { background: #4a5568; }
+        .dark .passport-scrollbar::-webkit-scrollbar-thumb { background: #718096; }
+        .dark .passport-scrollbar::-webkit-scrollbar-thumb:hover { background: #a0aec0; }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-brand-bg dark:bg-brand-black font-sans">
+    <div id="root"></div>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.22",
+        "react-icons/": "https://aistudiocdn.com/react-icons@^5.5.0/",
+        "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.3",
+        "@use-gesture/react": "https://aistudiocdn.com/@use-gesture/react@^10.3.1"
+      }
+    }
+    </script>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

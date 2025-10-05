@@ -1,0 +1,2 @@
+- [x] Update PrizesPage.tsx to display prizes with '₹' symbol
+- [x] Update EventDetailPage.tsx to display prizes with '₹' symbol
