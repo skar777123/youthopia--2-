@@ -100,21 +100,18 @@ const EventCard: React.FC<{ event: Event; isHighlighted: boolean }> = ({
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       variants={itemSpringUp}
       className={`relative p-3 rounded-lg border-2 flex flex-col h-full transition-all duration-300 overflow-hidden cursor-pointer
-                ${
-                  isCompleted
-                    ? "bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-700"
-                    : ""
-                }
-                ${
-                  isRegistered
-                    ? "bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-700"
-                    : ""
-                }
-                ${
-                  isLocked
-                    ? "bg-white dark:bg-gray-800/30 border-gray-200 dark:border-gray-700/50 hover:border-brand-passport-accent/50"
-                    : ""
-                }
+                ${isCompleted
+          ? "bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-700"
+          : ""
+        }
+                ${isRegistered
+          ? "bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-700"
+          : ""
+        }
+                ${isLocked
+          ? "bg-white dark:bg-gray-800/30 border-gray-200 dark:border-gray-700/50 hover:border-brand-passport-accent/50"
+          : ""
+        }
             `}
       onClick={() => navigate(`/event/${event.id}`)}
       whileHover={{
@@ -130,10 +127,10 @@ const EventCard: React.FC<{ event: Event; isHighlighted: boolean }> = ({
         scale: 1,
         boxShadow: isHighlighted
           ? [
-              "0 0 0px 0px rgba(255, 193, 7, 0)",
-              "0 0 15px 5px rgba(255, 193, 7, 0.7)",
-              "0 0 0px 0px rgba(255, 193, 7, 0)",
-            ]
+            "0 0 0px 0px rgba(255, 193, 7, 0)",
+            "0 0 15px 5px rgba(255, 193, 7, 0.7)",
+            "0 0 0px 0px rgba(255, 193, 7, 0)",
+          ]
           : "none",
       }}
       exit={{ opacity: 0, scale: 0.8 }}
@@ -204,8 +201,8 @@ const EventCard: React.FC<{ event: Event; isHighlighted: boolean }> = ({
               onClick={
                 event.feedback
                   ? (e) => {
-                      e.stopPropagation();
-                    }
+                    e.stopPropagation();
+                  }
                   : handleFeedback
               }
               disabled={!!event.feedback}
@@ -239,11 +236,10 @@ const FilterButton: React.FC<{
     className="relative py-1.5 px-4 rounded-full text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-passport-primary"
   >
     <span
-      className={`relative z-10 ${
-        isActive
+      className={`relative z-10 ${isActive
           ? "text-brand-passport-primary"
           : "text-brand-passport-subtle hover:text-brand-passport-primary"
-      }`}
+        }`}
     >
       {label}
     </span>
@@ -302,6 +298,8 @@ const VisaGridPage: React.FC<{ highlightEventId?: string }> = ({
       initial="hidden"
       animate="visible"
       exit="hidden"
+      key={`${filter}-${filteredEvents.length}`}  // ✅ forces proper re-render
+
     >
       <motion.div
         variants={itemSpringUp}

@@ -80,7 +80,7 @@ const GuidancePage: React.FC = () => {
 
     return (
         <motion.div
-            className="w-full h-full bg-transparent p-4 md:p-6 flex flex-col min-h-[400px] "
+            className="w-full h-full bg-transparent p-4 md:p-6 flex flex-col min-h-[400px]"
             variants={staggerContainer(0.1, 0.2)}
             initial="hidden"
             animate="visible"
